@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router';
+import Login from './views/Login';
+import SignUp from './views/SignUp';
+import Admin from './views/Admin';
+import User from './views/User';
+import CreatePlan from './views/CreatePlan';
+import EditPlan from './views/EditPlan';
+import PlanDetails from './views/PlanDetails';
+
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/sign-up" element={<SignUp />}/>
+        <Route path="/admin" element={<Admin />}/>
+        <Route path="/user" element={<User />}/>
+        <Route path="/create-plan" element={<CreatePlan />}/>
+        <Route path="/edit/:planId" element={<EditPlan />}/>
+        <Route path="/plan-details/:planId" element={<PlanDetails />}/>
+      </Routes>
     </div>
   );
 }
